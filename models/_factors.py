@@ -33,12 +33,11 @@ def symmetric_factorization_qr(X_bar):
     d, B = X_bar.shape
     Q, R = np.linalg.qr(X_bar)
     T = np.eye(B) + R @ R.T
-    try:
-        M = np.linalg.cholesky(T)
-    except np.linalg.LinAlgError:
-        T = (T + T.T) / 2
-        w, V = np.linalg.eigh(T)
-        w = np.maximum(w, 1e-10)
-        M = V @ np.diag(np.sqrt(w)) @ V.T
+
+    M = np.linalg.cholesky(T)
+
     Y_tB = M - np.eye(B)
     return Y_tB, Q, M
+
+
+
