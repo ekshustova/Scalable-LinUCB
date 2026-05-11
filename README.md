@@ -16,7 +16,7 @@ Both keep memory and per-step cost `O(d·r)` instead of `O(d^2)`.
 models/
   linucb_psi_rank1.py
   linucb_psi_batch.py
-  _factors.py             # PSI integrator + truncated SVD helpers
+  _factors.py             # PSI integrator + functions
 envs/
   mnist_env.py            # MNIST contextual bandit environment
 experiments/
